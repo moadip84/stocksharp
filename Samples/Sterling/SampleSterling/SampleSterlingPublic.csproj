@@ -45,25 +45,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ecng.Localization">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.Localization.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.Localization.dll</HintPath>
     </Reference>
     <Reference Include="Ecng.Collections">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.Collections.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.Collections.dll</HintPath>
     </Reference>
     <Reference Include="Ecng.Common">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.Common.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.Common.dll</HintPath>
     </Reference>
     <Reference Include="Ecng.ComponentModel">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.ComponentModel.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.ComponentModel.dll</HintPath>
     </Reference>
     <Reference Include="Ecng.Serialization">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.Serialization.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.Serialization.dll</HintPath>
     </Reference>
     <Reference Include="Ecng.Xaml">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\Ecng.Xaml.dll</HintPath>
+      <HintPath>..\..\..\References\Ecng.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="MoreLinq">
-      <HintPath>..\..\..\..\StockSharp (GitLab)\References\Ecng\MoreLinq.dll</HintPath>
+      <HintPath>..\..\..\References\MoreLinq.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Algo">
+      <HintPath>..\..\..\References\StockSharp.Algo.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.BusinessEntities">
+      <HintPath>..\..\..\References\StockSharp.BusinessEntities.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Localization">
+      <HintPath>..\..\..\References\StockSharp.Localization.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Logging">
+      <HintPath>..\..\..\References\StockSharp.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Messages">
+      <HintPath>..\..\..\References\StockSharp.Messages.dll</HintPath>
+    </Reference>
+    <Reference Include="StockSharp.Xaml">
+      <HintPath>..\..\..\References\StockSharp.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -91,11 +109,17 @@
     <Compile Include="NewsWindow.xaml.cs">
       <DependentUpon>NewsWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="QuotesWindow.xaml.cs">
+      <DependentUpon>QuotesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SecuritiesWindow.xaml.cs">
       <DependentUpon>SecuritiesWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="StopOrdersWindow.xaml.cs">
       <DependentUpon>StopOrdersWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TradesWindow.xaml.cs">
+      <DependentUpon>TradesWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="FindSecurityWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -129,6 +153,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="QuotesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="SecuritiesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +164,10 @@
     <Page Include="StopOrdersWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TradesWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -162,7 +194,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -170,39 +204,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Algo\Algo.csproj">
-      <Project>{2A5C6FAD-106C-4A4A-B602-77A6B1034CA2}</Project>
-      <Name>Algo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\BusinessEntities\BusinessEntities.csproj">
-      <Project>{DCE69DB8-53CA-4B7F-9368-02F175A31074}</Project>
-      <Name>BusinessEntities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Connectors\Sterling\Sterling.csproj">
-      <Project>{9add140b-1c43-4077-b32e-0eba81648c4d}</Project>
-      <Name>Sterling</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Localization\Localization.csproj">
-      <Project>{A98A81CE-75A1-4FAB-9C02-E6EEF4B51F4F}</Project>
-      <Name>Localization</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Logging\Logging.csproj">
-      <Project>{c4476add-a3d5-41bb-9d43-55d865863b78}</Project>
-      <Name>Logging</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Messages\Messages.csproj">
-      <Project>{B47F9C23-A4BD-46A9-BF27-54CB3D653503}</Project>
-      <Name>Messages</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\..\..\StockSharp %28GitLab%29\Xaml\Xaml.csproj">
-      <Project>{64e4d6f0-36b6-4904-9ba7-fffbe5ff71d8}</Project>
-      <Name>Xaml</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="..\..\..\References\stocksharp.ico">
       <Link>stocksharp.ico</Link>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Connectors\Sterling\Sterling.csproj">
+      <Project>{9add140b-1c43-4077-b32e-0eba81648c4d}</Project>
+      <Name>Sterling</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
