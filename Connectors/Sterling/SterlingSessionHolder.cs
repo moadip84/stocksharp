@@ -1,4 +1,4 @@
-п»їusing System.Collections.Generic;
+using System.Collections.Generic;
 using System;
 using System.ComponentModel;
 using System.Linq;
@@ -9,11 +9,11 @@ using Ecng.Common;
 namespace StockSharp.Sterling
 {
 	/// <summary>
-	/// РљРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ СЃРµСЃСЃРёРё.
+	/// Контейнер для сессии.
 	/// </summary>
 	[DisplayName("Sterling")]
-	[Category("РђРјРµСЂРёРєР°")]
-	[Description("РџРѕРґРєР»СЋС‡РµРЅРёРµ Рє Р±СЂРѕРєРµСЂСѓ, РёСЃРїРѕР»СЊР·СѓСЋС‰РёР№ Sterling.")]
+	[Category("Америка")]
+	[Description("Подключение к брокеру, использующий Sterling.")]
 	public class SterlingSessionHolder : MessageSessionHolder
 	{
 		private SterlingSession _session;
@@ -36,18 +36,18 @@ namespace StockSharp.Sterling
 		}
 
 		/// <summary>
-		/// РџРѕР»СѓС‡РёС‚СЊ СЃС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ РєРѕРЅС‚РµР№РЅРµСЂР°.
+		/// Получить строковое представление контейнера.
 		/// </summary>
-		/// <returns>РЎС‚СЂРѕРєРѕРІРѕРµ РїСЂРµРґСЃС‚Р°РІР»РµРЅРёРµ.</returns>
+		/// <returns>Строковое представление.</returns>
 		public override string ToString()
 		{
 			return string.Empty;
 		}
 
 		/// <summary>
-		/// РЎРѕР·РґР°С‚СЊ <see cref="SterlingSessionHolder"/>.
+		/// Создать <see cref="SterlingSessionHolder"/>.
 		/// </summary>
-		/// <param name="transactionIdGenerator">Р“РµРЅРµСЂР°С‚РѕСЂ РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂРѕРІ С‚СЂР°РЅР·Р°РєС†РёР№.</param>
+		/// <param name="transactionIdGenerator">Генератор идентификаторов транзакций.</param>
 		public SterlingSessionHolder(IdGenerator transactionIdGenerator)
 			: base(transactionIdGenerator)
 		{
@@ -55,7 +55,7 @@ namespace StockSharp.Sterling
 		}
 
 		/// <summary>
-		/// РђРґР°РїС‚РµСЂ РґР»СЏ С‚СЂР°РЅР·Р°РєС†РёР№.
+		/// Адаптер для транзакций.
 		/// </summary>
 		/// <returns></returns>
 		public override IMessageAdapter CreateTransactionAdapter()
@@ -64,7 +64,7 @@ namespace StockSharp.Sterling
 		}
 
 		/// <summary>
-		/// РђРґР°РїС‚РµСЂ РґР»СЏ РјР°СЂРєРµС‚ РґР°РЅРЅС‹С….
+		/// Адаптер для маркет данных.
 		/// </summary>
 		/// <returns></returns>
 		public override IMessageAdapter CreateMarketDataAdapter()
@@ -233,7 +233,7 @@ namespace StockSharp.Sterling
 
 			public void SubscribeLevel2(string symbol, string exch)
 			{
-				var pL2 = new structSTIL2Reg // РєР°Рє РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРµРїРѕРЅСЏС‚РЅРѕ, РјРµС‚РѕРґРѕРј С‚С‹РєР°
+				var pL2 = new structSTIL2Reg // как использовать непонятно, методом тыка
 				{
 					bstrSymbol = symbol,
 					bARCA = 1,
@@ -250,7 +250,7 @@ namespace StockSharp.Sterling
 
 			public void UnsubsribeLevel2(string symbol, string exch)
 			{
-				var pL2 = new structSTIL2Reg // РєР°Рє РёСЃРїРѕР»СЊР·РѕРІР°С‚СЊ РЅРµРїРѕРЅСЏС‚РЅРѕ, РјРµС‚РѕРґРѕРј С‚С‹РєР°
+				var pL2 = new structSTIL2Reg // как использовать непонятно, методом тыка
 				{
 					bstrSymbol = symbol,
 					bARCA = 1,

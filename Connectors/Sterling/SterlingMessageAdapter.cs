@@ -1,11 +1,11 @@
-п»їusing System;
+using System;
 using StockSharp.Licensing;
 using StockSharp.Messages;
 
 namespace StockSharp.Sterling
 {
 	/// <summary>
-	/// РђРґР°РїС‚РµСЂ СЃРѕРѕР±С‰РµРЅРёР№ РґР»СЏ Sterling.
+	/// Адаптер сообщений для Sterling.
 	/// </summary>
 	[LicenseFeature("Sterling")]
 	public partial class SterlingMessageAdapter : MessageAdapter<SterlingSessionHolder>
@@ -13,10 +13,10 @@ namespace StockSharp.Sterling
 		private bool _isSessionOwner;
 
 		/// <summary>
-		/// РЎРѕР·РґР°С‚СЊ <see cref="SterlingMessageAdapter"/>.
+		/// Создать <see cref="SterlingMessageAdapter"/>.
 		/// </summary>
-		/// <param name="type">РўРёРї Р°РґР°РїС‚РµСЂР°.</param>
-		/// <param name="sessionHolder">РљРѕРЅС‚РµР№РЅРµСЂ РґР»СЏ СЃРµСЃСЃРёРё.</param>
+		/// <param name="type">Тип адаптера.</param>
+		/// <param name="sessionHolder">Контейнер для сессии.</param>
 		public SterlingMessageAdapter(MessageAdapterTypes type, SterlingSessionHolder sessionHolder)
 			: base(type, sessionHolder)
 		{
@@ -25,7 +25,7 @@ namespace StockSharp.Sterling
 		}
 
 		/// <summary>
-		/// РћСЃРІРѕР±РѕРґРёС‚СЊ Р·Р°РЅСЏС‚С‹Рµ СЂРµСЃСѓСЂСЃС‹.
+		/// Освободить занятые ресурсы.
 		/// </summary>
 		protected override void DisposeManaged()
 		{
@@ -108,9 +108,9 @@ namespace StockSharp.Sterling
 		}
 
 		/// <summary>
-		/// РћС‚РїСЂР°РІРёС‚СЊ СЃРѕРѕР±С‰РµРЅРёРµ.
+		/// Отправить сообщение.
 		/// </summary>
-		/// <param name="message">РЎРѕРѕР±С‰РµРЅРёРµ.</param>
+		/// <param name="message">Сообщение.</param>
 		protected override void OnSendInMessage(Message message)
 		{
 			switch (message.Type)
